@@ -1,3 +1,21 @@
 = Roxanne
 
 This project rocks and uses MIT-LICENSE.
+
+= Install
+
+in your routes.rb file
+
+	Roxanne::Engine.routes
+	
+in your shell run following commands
+	
+	rake roxanne:install:migrations
+	rake db:migrate
+	
+	
+= TODO
+
+Files to copy
+
+db/seeds.rb

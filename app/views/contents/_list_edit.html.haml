@@ -1,0 +1,4 @@
+.container_list
+  - list.children.sorted.each do |child|
+    = ContainerDecorator.decorate(child).render
+  = list.add_container_link

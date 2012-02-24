@@ -1,0 +1,109 @@
+/** buttons **/
+.mercury-primary-toolbar .mercury-insertImage-button em,
+.mercury-expander-button[data-button=insertImage] em {
+  background-image: url(/assets/mercury/toolbar/primary/image.png)
+}
+
+.mercury-primary-toolbar .mercury-insertPage-button em,
+.mercury-expander-button[data-button=insertPage] em {
+  background-image: url(/assets/mercury/toolbar/primary/insertpage.png)
+}
+
+/** common **/
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/** content **/
+.highlight_content {
+  background-color: #F7FFD3;
+}
+
+/** image library **/
+
+.image_library {
+  float:  left;
+  height: 100px;
+  width:  100px;
+  padding:  5px;
+  cursor:  hand;
+  cursor:  pointer;
+}
+
+/** flash **/
+#notice, #error {
+	color: #2F2F2F;
+	padding:0.25em 0.5em;
+	margin-bottom: 15px;
+}
+
+#notice {
+	background-color:#DEFFDD;
+	border:2px solid #20BC00;
+}
+
+#error {
+	background-color:#F2E1E1;
+	border:2px solid #AA0000;
+}
+
+/** function links **/
+
+a.add_container {
+  width:  16px;
+  height: 16px;
+  display: block;
+  background-image: url("/assets/roxanne/toolbar/plus.png")
+}
+
+/** toolbar **/
+
+#roxanne_toolbar {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background: #DDD;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(198,198,198)), color-stop(1, rgb(226,225,226)));
+  background-image: -moz-linear-gradient(center bottom, rgb(198,198,198) 0%, rgb(226,225,226) 100%);
+  border-bottom: 1px solid #727272;
+  cursor: default;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 14px;
+  text-shadow: 0 1px 0 #EEEEEE;
+  padding: 3px 15px;
+}
+
+#roxanne_toolbar div.logout {
+  height: 16px;
+  width:  16px;
+  margin-right: 5px;
+  display: block;
+  float: left;
+  background-image: url("/assets/roxanne/toolbar/control-power.png")
+}
+
+#roxanne_toolbar a:hover {
+  background: #DDD;
+  color: #fff;
+}
+
+#roxanne_toolbar div.users {
+  height: 16px;
+  width:  16px;
+  display: block;
+  margin-right: 5px;
+  margin-left: 15px;
+  float: left;
+  background-image: url("/assets/roxanne/toolbar/user.png")
+}
+
+#roxanne_toolbar div.edit {
+  height: 16px;
+  width:  16px;
+  display: block;
+  margin-right: 5px;
+  margin-left: 15px;
+  float: left;
+  background-image: url("/assets/roxanne/toolbar/pencil.png")
+}

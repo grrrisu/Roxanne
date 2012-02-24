@@ -1,15 +1,68 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
+// This is a manifest file that'll be compiled into including all the files listed below.
+// Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
+// be included in the compiled file accessible from http://example.com/assets/application.js
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
-//
 //= require jquery
-//= require jquery_ujs
-//= require_tree .
+// require jquery_ujs
+// require_tree .
+
+// Always request javascript when sending xhr
+$(function() {
+  $.ajaxSetup({
+    'beforeSend': function(xhr) {
+      xhr.setRequestHeader("Accept", "text/javascript");
+    }
+  });
+});
+
+$().ready(function(){
+  
+  jQuery(top).trigger('initialize:frame');
+  
+  // hide roxanne toolbar if mercury toolbar is present in parent window
+  if(window.location != window.parent.location){
+    $("#roxanne_toolbar").hide();
+  } else {
+    $("a.add_container").hide();
+    $(".fancybox").fancybox({
+    		prevEffect		: 'fade',
+    		nextEffect		: 'fade',
+    		closeBtn		  : true,
+    		arrows        : true,
+    		padding       : 2,
+    		helpers		:   {
+    		  title	  : { type : 'outside' },
+    			overlay	: {
+          	opacity : 0.8,
+          	css     : { 'background-color' : '#000' }
+          }
+    		}
+    });
+  }
+  
+  $("a.add_container").live("click", function(){
+    var url = "/containers/new" + '?parent_id='  + $(this).attr('data-parent');
+    if($(this).attr('data-sibling')){
+      url += '&sibling_id=' + $(this).attr('data-sibling');
+    }
+    Mercury.modal(url, {
+      'title': "New Container"
+    })
+  });
+  
+  $("a.add_container").live("hover", function(){
+    var id = $(this).attr("data-sibling");
+    if(id){
+      $("#container_" + id).toggleClass('highlight_content');
+    } else {
+      $(this).parent(".container_list").toggleClass('highlight_content');
+    }
+  });
+  
+  $("a.add_container_list").live("click", function(){
+    alert("add_container_list");
+  });
+
+});

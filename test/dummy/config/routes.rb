@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-
-  mount Roxanne::Engine => "/roxanne"
+  Roxanne::Engine.routes
 end
