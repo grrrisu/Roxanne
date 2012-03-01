@@ -1,6 +1,7 @@
 module Roxanne
   class ContentsController < ApplicationController
 
+    layout 'application' # from main app
     before_filter :require_login, :except => :show
     before_filter :get_page, :except => :edit
 

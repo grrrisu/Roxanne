@@ -16,3 +16,8 @@ body {
   font-size: 13px;
   line-height: 18px; 
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}

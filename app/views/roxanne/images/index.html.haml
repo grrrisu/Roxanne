@@ -1,0 +1,4 @@
+%div{:style => 'width: 800px'}
+- @images.each do |image|
+  .image_library
+    = image_tag image.url(:thumb)

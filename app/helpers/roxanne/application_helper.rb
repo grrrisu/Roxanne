@@ -8,8 +8,14 @@ module Roxanne
       content_for(:meta, yield)
     end
 
-    def show_admin_panel
-      current_user && params[:requested_uri].blank?
+    def render_admin_panel
+      if current_user && params[:requested_uri].blank?
+        render 'roxanne/admin/panel'
+      end
+    end
+    
+    def render_flash
+      render 'roxanne/admin/flash'
     end
 
     def request_uri

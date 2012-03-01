@@ -1,0 +1,16 @@
+!!!html
+%html
+  %head
+    %title= Roxanne
+    %meta{'http-equiv' => 'content-type', :content => 'text/html;charset=UTF-8'}
+    = stylesheet_link_tag    "roxanne/application"
+    = javascript_include_tag "roxanne/application"
+    = csrf_meta_tags
+  %body
+    - if flash[:notice]
+      #notice
+        = flash[:notice]
+    - if flash[:error]
+      #error
+        = flash[:error]
+    = yield

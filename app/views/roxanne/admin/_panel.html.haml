@@ -1,0 +1,11 @@
+#roxanne_toolbar
+  &nbsp;
+  %span{:style => "float: left"}
+    .users
+    = link_to 'New User', main_app.new_user_path
+  %span{:style => "float: left"}
+    .edit
+    = link_to 'Edit', main_app.contents_edit_path(request_uri)
+  %span{:style => "float: right"}
+    .logout
+    = link_to 'Logout', main_app.logout_path

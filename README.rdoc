@@ -14,8 +14,16 @@ in your shell run following commands
 	rake db:migrate
 	
 	
+= View
+
+	render_admin_panel
+	
+	render_flash
+	
+	
 = TODO
 
 Files to copy
 
 db/seeds.rb
+app/views/layouts/mercury.html.erb
