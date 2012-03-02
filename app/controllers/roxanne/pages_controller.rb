@@ -46,7 +46,7 @@ module Roxanne
 
       respond_to do |format|
         if @page.save
-          format.html { redirect_to mercury_editor_path(@page.uri), notice: 'Page was successfully created.' }
+          format.html { redirect_to main_app.mercury_editor_path(@page.uri), notice: 'Page was successfully created.' }
           format.json { render json: @page, status: :created, location: @page }
         else
           format.html { render partial: 'form' }

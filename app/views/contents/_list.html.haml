@@ -1,3 +1,3 @@
 .container_list
   - list.children.sorted.each do |child|
-    = ContainerDecorator.decorate(child).render
+    = Roxanne::ContainerDecorator.decorate(child).render

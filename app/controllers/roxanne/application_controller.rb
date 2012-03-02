@@ -1,6 +1,6 @@
 module Roxanne
   class ApplicationController < ActionController::Base
-    before_filter :protected_controllers
+    #before_filter :protected_controllers
 
     def protected_controllers
       exceptions = [:contents, :sessions]

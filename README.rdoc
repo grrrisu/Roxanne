@@ -14,6 +14,12 @@ in your shell run following commands
 	rake db:migrate
 	
 	
+= Controller
+
+ApplicationController
+
+  before_filter :protected_controllers	
+
 = View
 
 	render_admin_panel
@@ -27,3 +33,4 @@ Files to copy
 
 db/seeds.rb
 app/views/layouts/mercury.html.erb
+config/initializers/sorcery.rb
