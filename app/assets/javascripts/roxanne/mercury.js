@@ -131,9 +131,9 @@ window.Mercury = {
         insertPage:            ['Page', 'Add a new page', { modal: '/pages/new'}],
         insertImage:           ['Image', 'Image Library', { modal: '/images'}],
         sep3:                  ' ',
-        historyPanel:          ['History', 'Page Version History', { panel: '/mercury/panels/history.html' }],
-        sep3:                  ' ',
-        notesPanel:            ['Notes', 'Page Notes', { panel: '/mercury/panels/notes.html' }]
+        //historyPanel:          ['History', 'Page Version History', { panel: '/mercury/panels/history.html' }],
+        //sep3:                  ' ',
+        //notesPanel:            ['Notes', 'Page Notes', { panel: '/mercury/panels/notes.html' }]
         },
 
       editable: {

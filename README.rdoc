@@ -4,34 +4,12 @@ This project rocks and uses MIT-LICENSE.
 
 = Install
 
-in your routes.rb file
-
-	Roxanne::Engine.routes
-	
-in your shell run following commands
-	
-	rake roxanne:install:migrations
-	rake db:migrate
-	
-	
-= Controller
-
-ApplicationController
-
-  before_filter :protected_controllers	
+  gem "roxanne"
+  
+  rails generate roxanne:install	
 
 = View
 
 	render_admin_panel
 	
 	render_flash
-	
-	
-= TODO
-
-Files to copy
-
-db/seeds.rb
-app/views/layouts/mercury.html.erb
-config/initializers/sorcery.rb
-lib/mercury/authentication.rb

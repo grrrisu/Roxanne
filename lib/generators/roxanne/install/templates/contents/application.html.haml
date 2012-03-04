@@ -1,0 +1,16 @@
+- meta do
+  - capture_haml do
+    %meta{:name => "Description", :content => "Roxanne a simple CMS"}
+    %meta{:name => "Keywords", :content => "Roxanne, Ruby, Ruby on Rails, Mercury Editor"}
+
+= title "Roxanne - #{@page.title}"
+
+%header
+  Header
+= @page.render_navigation 'pages/navigation', :depth => 2
+
+%article.container_list
+  =raw @page.render_section('main')
+
+%footer
+  Footer

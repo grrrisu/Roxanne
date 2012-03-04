@@ -1,0 +1,12 @@
+%nav
+	- navigation.each do |item|
+		- unless item.parent.nil?
+			- if breadcrumbs.include? item
+				.nav_default_1_high
+					- if breadcrumbs.last == item
+						= item.title
+					- else
+						= link_to item.title, item.url
+			- else
+				.nav_default_1
+					= link_to item.title, item.url
