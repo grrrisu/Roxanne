@@ -34,3 +34,4 @@ Files to copy
 db/seeds.rb
 app/views/layouts/mercury.html.erb
 config/initializers/sorcery.rb
+lib/mercury/authentication.rb
