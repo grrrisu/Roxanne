@@ -36,7 +36,7 @@ module Roxanne
         end
 
         respond_to do |format|
-          format.html { render partial: 'form' }# new.html.erb
+          format.html { render partial: 'form' }
           format.json { render json: @container }
         end
       else

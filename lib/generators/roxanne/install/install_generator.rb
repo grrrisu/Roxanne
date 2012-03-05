@@ -28,12 +28,12 @@ module Roxanne
     desc "add Roxanne routes"
     def mount
       route "Roxanne::Engine.routes"
-      route "root :to => \"contents#show\", :uri => ''"
+      route "root :to => 'roxanne/contents#show', :uri => ''"
     end
     
     desc "migrate database"
     def migrate_database
-      rake "mercury:install:migrations"
+      rake "mercury_engine:install:migrations"
       rake "roxanne:install:migrations"
     	rake "db:migrate"
     end
@@ -41,6 +41,11 @@ module Roxanne
     desc "load seeds"
     def load_seeds
       rake "roxanne:seed"
+    end
+    
+    desc "remove defaults"
+    def remove_defaults
+      remove_file 'public/index.html'
     end
     
   end

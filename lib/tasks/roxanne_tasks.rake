@@ -6,7 +6,7 @@ namespace :roxanne do
 
   desc "load seed data"
   task(:seed => :environment) do
-    require File.join(Roxanne::Engine.root, '/db/seed.rb')
+    require File.join(Roxanne::Engine.root, '/db/seeds.rb')
   end
   
 end
