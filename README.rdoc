@@ -6,6 +6,8 @@ This project rocks and uses MIT-LICENSE.
 
   gem "roxanne"
   
+configure your database.yml and run rake db:create if neede
+  
   rails generate roxanne:install	
 
 = View
