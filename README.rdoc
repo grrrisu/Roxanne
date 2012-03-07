@@ -6,7 +6,7 @@ This project rocks and uses MIT-LICENSE.
 
   gem "roxanne"
   
-configure your database.yml and run rake db:create if neede
+configure your database.yml and run rake db:create if needed
   
   rails generate roxanne:install	
 
@@ -15,3 +15,23 @@ configure your database.yml and run rake db:create if neede
 	render_admin_panel
 	
 	render_flash
+	
+= Fancybox
+
+Included Fancybox 2.0.5
+To activate include it to your javascripts and stylesheets
+
+javascripts/application.js add
+  //= require fancybox/jquery.fancybox.pack
+  //= require fancybox/helpers/jquery.fancybox-buttons
+  //= require fancybox/helpers/jquery.fancybox-thumbs
+  
+stylesheets/application.css add
+	 *= require 'fancybox/jquery.fancybox'
+   *= require 'fancybox/helpers/jquery.fancybox-buttons'
+   *= require 'fancybox/helpers/jquery.fancybox-thumbs'
+	
+= Credits
+
+  * HTML5 WYSWYG Editor, Mercury https://github.com/jejacks0n/mercury
+  * Magical Authentication, Sorcery https://github.com/NoamB/sorcery
