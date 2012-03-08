@@ -26,20 +26,6 @@ $().ready(function(){
     $("#roxanne_toolbar").hide();
   } else {
     $("a.add_container").hide();
-    $(".fancybox").fancybox({
-    		prevEffect		: 'fade',
-    		nextEffect		: 'fade',
-    		closeBtn		  : true,
-    		arrows        : true,
-    		padding       : 2,
-    		helpers		:   {
-    		  title	  : { type : 'outside' },
-    			overlay	: {
-          	opacity : 0.8,
-          	css     : { 'background-color' : '#000' }
-          }
-    		}
-    });
   }
   
   $("a.add_container").live("click", function(){

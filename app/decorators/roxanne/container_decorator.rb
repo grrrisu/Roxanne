@@ -35,43 +35,22 @@ module Roxanne
         ''
       end
     end
-
-    def add_container_list_link
-
-    end
-
-    def render_list
-      if helpers.session[:edit]
-        helpers.render "contents/list_edit", :list => self
+    
+    def find_template(directory, template)
+      if helpers.session[:edit] && helpers.controller.template_exists?("#{template}_edit", [directory], true)
+        "#{directory}/#{template}_edit"
       else
-        helpers.render "contents/list", :list => self
+        "#{directory}/#{template}"
       end
     end
 
-    def render_list_old
-      output = ''
-      model.children.sorted.each do |child|
-        output += self.class.decorate(child).render
-      end
-      output += add_container_link
-      helpers.content_tag('div', output, {:class => '.container_list'}, false)
+    def render_list(template)
+      helpers.render find_template("contents", template), :list => self
     end
-
+    
     def render_container
-      if helpers.session[:edit]
-        output =  add_container_link
-        if helpers.controller.template_exists? "#{model.template}_edit", ["templates"], true
-          output += render_template "templates/#{model.template}_edit"
-        else
-          output += render_template "templates/#{model.template}"
-        end
-      else
-        render_template "templates/#{model.template}"
-      end
-    end
-
-    def render_template(template)
-      helpers.render template, :container => self.class.decorate(model)
+      output  = helpers.session[:edit] ? add_container_link : ''
+      output += helpers.render find_template("templates", model.template), :container => self.class.decorate(model)
     end
 
     def extract(scope, name)

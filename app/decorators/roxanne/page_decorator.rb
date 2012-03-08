@@ -3,16 +3,18 @@ module Roxanne
   class PageDecorator < ApplicationDecorator
     decorates "Roxanne::Page"
 
-    def render_section(name)
-      render(name) do
+    def render_section(name, template = 'list')
+      decorater = render(name) do
         ContainerList.create :name => name, :page => model
       end
+      decorater.render_list(template)
     end
 
     def render_container(name, template)
-      render(name) do
+      decorater = render(name) do
         Container.create :name => name, :template => template, :page => model
       end
+      decorater.render_container
     end
 
     def navigation_as_collection(depth = nil)
@@ -39,7 +41,6 @@ module Roxanne
         model.containers << container
       end
       decorator = ContainerDecorator.decorate(container)
-      decorator.render
     end
 
   end
