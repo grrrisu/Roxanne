@@ -45,12 +45,12 @@ module Roxanne
     end
 
     def render_list(template)
-      helpers.render find_template("contents", template), :list => self
+      helpers.render find_template("templates/lists", template), :list => self
     end
     
     def render_container
       output  = helpers.session[:edit] ? add_container_link : ''
-      output += helpers.render find_template("templates", model.template), :container => self.class.decorate(model)
+      output += helpers.render find_template("templates/sections", model.template), :container => self.class.decorate(model)
     end
 
     def extract(scope, name)
@@ -69,7 +69,7 @@ module Roxanne
 
     def render_mercury_region(name, partial)
       content = model.contents.find_or_create_by_name(name)
-      helpers.render "contents/#{partial}", :content => content
+      helpers.render "templates/snippets/#{partial}", :content => content
     end
 
     def render_editable_div(name)
