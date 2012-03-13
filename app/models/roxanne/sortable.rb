@@ -27,7 +27,7 @@ module Roxanne
       end
 
       def set_sort
-        self.sort = siblings.count if sort.blank?
+        self.sort = siblings.count if sort.blank? && parent.present?
       end
     
       def shift_sibling_sorting
