@@ -3,7 +3,7 @@ module Roxanne
   class PageDecorator < ApplicationDecorator
     decorates "Roxanne::Page"
 
-    def render_section(name, template = 'list')
+    def render_list(name, template = 'list')
       decorater = render(name) do
         ContainerList.create :name => name, :page => model
       end
@@ -29,7 +29,7 @@ module Roxanne
       subtree_root = options[:node] || Page.root
       navigation   = subtree_root.sorted_subtree(options[:depth])
       breadcrumbs  = model.ancestors << model
-      helpers.render template, navigation: navigation, breadcrumbs: breadcrumbs
+      helpers.render "templates/pages/#{template}", navigation: navigation, breadcrumbs: breadcrumbs
     end
 
   private

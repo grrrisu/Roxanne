@@ -8,7 +8,7 @@ module Roxanne
     # GET uri
     def show
      respond_to do |format|
-        format.html { render :file => "contents/#{@page.layout}" }
+        format.html { render :file => "templates/pages/#{@page.layout}" }
         format.json { render json: @page }
       end
     end

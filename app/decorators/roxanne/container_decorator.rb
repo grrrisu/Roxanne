@@ -50,7 +50,7 @@ module Roxanne
     
     def render_container
       output  = helpers.session[:edit] ? add_container_link : ''
-      output += helpers.render find_template("templates/sections", model.template), :container => self.class.decorate(model)
+      output += helpers.render find_template("templates/containers", model.template), :container => self.class.decorate(model)
     end
 
     def extract(scope, name)

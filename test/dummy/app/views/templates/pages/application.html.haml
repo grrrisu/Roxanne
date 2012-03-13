@@ -7,10 +7,10 @@
 
 %header
   Header
-= @page.render_navigation 'pages/navigation', :depth => 2
+= @page.render_navigation 'navigation', :depth => 2
 
 %article.container_list
-  =raw @page.render_section('main')
+  =raw @page.render_list('main')
 
 %footer
   Footer

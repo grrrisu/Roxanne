@@ -26,6 +26,7 @@ module Roxanne
       empty_directory "app/views/templates/snippets"
       empty_directory "app/views/templates/sections"
       empty_directory "app/views/templates/lists"
+      empty_directory "app/views/templates/pages"
     end
 
     desc "add Roxanne routes"
