@@ -4,6 +4,8 @@
       = form.inputs do
         = form.input :parent_id,  :as => :hidden
         = form.input :sibling_id, :as => :hidden
+        = form.input :page_id,    :as => :hidden
+        = form.input :name,       :as => :hidden
         = form.input :template,   :collection =>  ['_container_', 'example', 'simple', 'imagine_e_testo', 'quadro', 'titolo_capitale'] , :input_html => {:include_blank => '-- choose --'}
       = form.buttons do
         = form.commit_button 'Insert Template'

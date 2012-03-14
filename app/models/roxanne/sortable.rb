@@ -16,7 +16,7 @@ module Roxanne
     end
 
     module InstanceMethods
-    
+
       def sibling_id= id
         if id.present?
           @sibling_id = id
@@ -27,9 +27,13 @@ module Roxanne
       end
 
       def set_sort
-        self.sort = siblings.count if sort.blank? && parent.present?
+        if parent.blank?
+          self.sort = 0
+        else
+          self.sort = siblings.count if sort.blank?
+        end
       end
-    
+
       def shift_sibling_sorting
         if sibling_id.present?
           self.class.base_class.children_of(parent).where('sort >= ?', sort).update_all('sort = sort+1')

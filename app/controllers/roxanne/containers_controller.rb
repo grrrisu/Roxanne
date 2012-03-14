@@ -1,6 +1,6 @@
 module Roxanne
   class ContainersController < ApplicationController
-  
+
     # GET /containers
     # GET /containers.json
     def index
@@ -26,21 +26,20 @@ module Roxanne
     # GET /containers/new
     # GET /containers/new.json
     def new
-      if params[:parent_id] || params[:sibling_id]
-        if params[:sibling_id]
-          @container = Container.new
-          @container.sibling_id = params[:sibling_id]
-        else
-          parent  = Container.find params[:parent_id]
-          @container = Container.new :parent => parent
-        end
-
-        respond_to do |format|
-          format.html { render partial: 'form' }
-          format.json { render json: @container }
-        end
+      if params[:sibling_id]
+        @container = Container.new
+        @container.sibling_id = params[:sibling_id]
+      elsif params[:parent_id]
+        parent  = Container.find params[:parent_id]
+        @container = Container.new :parent => parent
       else
-        raise "Missing parent_id or sibling"
+        page = Page.find params[:page_id]
+        @container = Container.new :page => page, :name => params[:name]
+      end
+
+      respond_to do |format|
+        format.html { render partial: 'form' }
+        format.json { render json: @container }
       end
     end
 

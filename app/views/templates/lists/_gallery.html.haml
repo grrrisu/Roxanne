@@ -1,6 +1,6 @@
 .container_list
-  - first_child = Roxanne::ContainerDecorator.decorate(list.children.sorted.first)
-  = image_tag first_child.extract(:image_source, 'picture').gsub('original', 'medium')
-  - list.children.sorted.each do |child|
-    =raw Roxanne::ContainerDecorator.decorate(child).render
-    
+  - unless list.new_record?
+    - first_child = Roxanne::ContainerDecorator.decorate(list.children.sorted.first)
+    = image_tag first_child.extract(:image_source, 'picture').gsub('original', 'medium')
+    - list.each_child do |child|
+      =raw Roxanne::ContainerDecorator.decorate(child).render

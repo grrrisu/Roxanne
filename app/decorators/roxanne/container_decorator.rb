@@ -9,7 +9,7 @@ module Roxanne
         render_container
       end
     end
-
+=begin
     def template_selection
       child = Container.new :name => name
       if model.instance_of? ContainerList
@@ -19,38 +19,43 @@ module Roxanne
       end
       helpers.render 'containers/template_selection', locals.merge(:container => child)
     end
-
+=end
     def add_container_link
       if helpers.current_user
+        data = {:name => model.name}
         if model.instance_of? ContainerList
-          data = {:parent => model.id, :name => model.name}
+          if model.new_record?
+            data[:page] = model.page.id
+          else
+            data[:parent] = model.id
+          end
         else
-          data = {:sibling => model.id, :name => model.name}
+          data[:sibling] = model.id
         end
         helpers.content_tag 'a', '',
-                 :id => "before_#{model.id}",
-                 :href => "#", :onclick => "return false;", :class => "add_container",
-                 :data => data
+                   :id => "before_#{id}",
+                   :href => "#", :onclick => "return false;", :class => "add_container",
+                   :data => data
       else
         ''
       end
     end
-    
-    def find_template(directory, template)
-      if helpers.session[:edit] && helpers.controller.template_exists?("#{template}_edit", [directory], true)
-        "#{directory}/#{template}_edit"
+
+    def find_template(directory)
+      if edit_mode? && helpers.controller.template_exists?("#{model.template}_edit", [directory], true)
+        "#{directory}/#{model.template}_edit"
       else
-        "#{directory}/#{template}"
+        "#{directory}/#{model.template}"
       end
     end
 
-    def render_list(template)
-      helpers.render find_template("templates/lists", template), :list => self
+    def render_list
+      helpers.render find_template("templates/lists"), :list => self
     end
-    
+
     def render_container
-      output  = helpers.session[:edit] ? add_container_link : ''
-      output += helpers.render find_template("templates/containers", model.template), :container => self.class.decorate(model)
+      output  = edit_mode? && model.parent ? add_container_link : ''
+      output += helpers.render find_template("templates/containers"), :container => self.class.decorate(model)
     end
 
     def extract(scope, name)
@@ -62,6 +67,12 @@ module Roxanne
           content.text
         else
           raise "unknown scope #{scope}"
+      end
+    end
+
+    def each_child
+      unless model.new_record?
+        model.children.sorted.each {|child| yield child}
       end
     end
 

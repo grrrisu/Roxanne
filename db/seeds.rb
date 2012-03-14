@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-pages = Roxanne::Page.find_or_create_by_title('home')
+page = Roxanne::Page.find_or_create_by_title('home')
 
 if Roxanne::User.count == 0
   admin = Roxanne::User.new
