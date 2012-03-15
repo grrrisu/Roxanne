@@ -3,9 +3,13 @@ module Roxanne
   class PageDecorator < ApplicationDecorator
     decorates "Roxanne::Page"
 
-    def render_list(name)
+    def render_list(name, template = nil)
       decorater = get_container(name) do
-        ContainerList.new :name => name, :page => model, :template => 'list', :page => model
+        if template
+          ContainerList.create :name => name, :page => model, :template => template
+        else
+          ContainerList.new :name => name, :page => model, :template => 'list'
+        end
       end
     end
 
@@ -36,7 +40,7 @@ module Roxanne
       # if current_user.can :manage, Container
       unless container = model.containers.find_by_name(name)
         container = yield
-        #model.containers << container
+        model.containers << container unless container.new_record?
       end
       decorator = ContainerDecorator.decorate(container)
       decorator.render
