@@ -44,8 +44,10 @@ module Roxanne
     def find_template(directory)
       if edit_mode? && helpers.controller.template_exists?("#{model.template}_edit", [directory], true)
         "#{directory}/#{model.template}_edit"
-      else
+      elsif helpers.controller.template_exists?(model.template, [directory], true)
         "#{directory}/#{model.template}"
+      else
+        raise "template '#{model.template}' not found"
       end
     end
 

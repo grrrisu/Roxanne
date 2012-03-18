@@ -34,7 +34,7 @@ module Roxanne
         @container = Container.new :parent => parent
       else
         page = Page.find params[:page_id]
-        @container = Container.new :page => page, :name => params[:name]
+        @container = ContainerList.new :page => page, :name => params[:name]
       end
 
       respond_to do |format|
@@ -50,15 +50,15 @@ module Roxanne
 
     # POST /containers.js
     def create
-      if params[:container][:template] == '_container_'
-        @container = ContainerList.new(params[:container])
+      if params[:container_list].present?
+        @container = ContainerList.new(params[:container_list].merge(:template => params[:container_list][:list]))
       else
         @container = Container.new(params[:container])
       end
 
       respond_to do |format|
         if @container.save
-          format.html { redirect_to container_path(@container), notice: 'Container was successfully created.' }
+          format.html { redirect_to main_app.container_path(@container), notice: 'Container was successfully created.' }
           format.json { render json: @container, status: :created, location: @container }
           format.js   { render text: ContainerDecorator.decorate(@container).render }
         else

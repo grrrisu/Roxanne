@@ -6,6 +6,8 @@
         = form.input :sibling_id, :as => :hidden
         = form.input :page_id,    :as => :hidden
         = form.input :name,       :as => :hidden
-        = form.input :template,   :collection =>  containers_collection , :input_html => {:include_blank => '-- choose --'}
+        = form.input :template,   :label => 'Section', :collection =>  containers_collection , :input_html => {:include_blank => '-- choose --'}
+        - if @container.instance_of? Roxanne::ContainerList
+          = form.input :list, :collection => lists_collection, :input_html => {:include_blank => '-- choose --'}
       = form.buttons do
         = form.commit_button 'Insert Template'
