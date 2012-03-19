@@ -38,7 +38,7 @@ $().ready(function(){
     if ($(this).attr('data-sibling')){
       url += '?sibling_id=' + $(this).attr('data-sibling');
     }
-    console.log(url)
+    
     Mercury.modal(url, {
       'title': "New Container"
     })

@@ -24,7 +24,7 @@
   background-image: url("/assets/roxanne/toolbar/control-power.png")
 }
 
-#roxanne_toolbar a, a:visited {
+#roxanne_toolbar a, #roxanne_toolbar a:visited {
   background: #DDD;
   color: #000;
 }

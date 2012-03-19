@@ -10,7 +10,7 @@ $(".image_library img").live("click", function(){
   Mercury.modal.hide();
 })
 
-$("form#new_container").live('submit', function(){
+$("form#new_container, form#new_container_list").live('submit', function(){
   $.ajax({
     url: $(this).attr("action") + ".js",
     type: $(this).attr("method"),
@@ -20,8 +20,15 @@ $("form#new_container").live('submit', function(){
       var sibling_id = $("#container_sibling_id").attr('value')
       var parent_id  = $("#container_parent_id").attr('value')
       var link_id    = sibling_id ? sibling_id : parent_id
-      var element    = $("#mercury_iframe").contents().find("a#before_"+ link_id)
-      element.before(data)
+      if(link_id){
+        var element    = $("#mercury_iframe").contents().find("a#before_"+ link_id);
+        element.before(data);
+      } else {
+        var name       = $("#container_list_name").attr('value');
+        var element    = $("#mercury_iframe").contents().find("a#before_"+ name).parent();
+        element.replaceWith(data);
+      }
+      
       Mercury.trigger('reinitialize')
       Mercury.modal.hide()
       // has no effect
