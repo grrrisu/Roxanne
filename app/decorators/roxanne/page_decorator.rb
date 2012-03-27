@@ -31,7 +31,7 @@ module Roxanne
       subtree_root = options[:node] || Page.root
       navigation   = subtree_root.sorted_subtree(options[:depth])
       breadcrumbs  = model.ancestors << model
-      helpers.render "templates/pages/#{template}", navigation: navigation, breadcrumbs: breadcrumbs
+      helpers.render "templates/pages/#{template}", navigation: navigation, breadcrumbs: breadcrumbs, root: subtree_root
     end
 
   private
