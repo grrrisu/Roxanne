@@ -27,9 +27,14 @@ module Roxanne
       end
     end
 
+    # options
+    # * node     subtree of node (default root)
+    # * depth    depth starting from root (default all)
+    # * start    filter nodes starting at depth 
     def render_navigation(template, options)
       subtree_root = options[:node] || Page.root
       navigation   = subtree_root.sorted_subtree(options[:depth])
+      navigation   = navigation.find_all{|page| page.depth >= options[:start]} if options[:start]
       breadcrumbs  = model.ancestors << model
       helpers.render "templates/pages/#{template}", navigation: navigation, breadcrumbs: breadcrumbs, root: subtree_root
     end

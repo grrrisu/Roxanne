@@ -1,6 +1,8 @@
 /** toolbar **/
 
 #roxanne_toolbar {
+  position: fixed;
+  width: 100%;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
@@ -11,7 +13,7 @@
   cursor: default;
   font-family: verdana,arial,helvetica,sans-serif;
   font-size: 14px;
-  text-shadow: 0 1px 0 #EEEEEE;
+  text-shadow: 1px 1px 0px #eee;
   padding: 3px 15px;
 }
 
@@ -25,12 +27,10 @@
 }
 
 #roxanne_toolbar a, #roxanne_toolbar a:visited {
-  background: #DDD;
   color: #000;
 }
 
 #roxanne_toolbar a:hover {
-  background: #DDD;
   color: #fff;
 }
 
