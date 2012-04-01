@@ -17,6 +17,11 @@
   padding: 3px 15px;
 }
 
+#roxanne_toolbar_spacer {
+  height: 20px;
+  width:  100%;
+}
+
 #roxanne_toolbar div.logout {
   height: 16px;
   width:  16px;

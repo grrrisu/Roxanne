@@ -5,6 +5,6 @@
         = form.input :title
         = form.input :parent_id, :collection => navigation_as_collection, :input_html => { :include_blank => '- root -' }, :label => "as last child of"
         = form.input :sibling_id, :collection => Roxanne::Page.all.collect {|p| [ p.title, p.id ] }, :input_html => { :include_blank => '- root -' }, :label => "or before page"
-        = form.input :layout, :collection => ['application', 'dimaria']
+        = form.input :layout, :collection => pages_collection
       = form.buttons do
         = form.commit_button 'Create New Page'

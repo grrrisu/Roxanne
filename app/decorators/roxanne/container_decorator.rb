@@ -9,17 +9,7 @@ module Roxanne
         render_container
       end
     end
-=begin
-    def template_selection
-      child = Container.new :name => name
-      if model.instance_of? ContainerList
-        locals = {:parent => model, :sibling => nil}
-      else
-        locals = {:parent => model.parent, :sibling => model}
-      end
-      helpers.render 'containers/template_selection', locals.merge(:container => child)
-    end
-=end
+
     def add_container_link
       if helpers.current_user
         data = {:name => model.name}
@@ -65,6 +55,8 @@ module Roxanne
       case scope
         when :image_source
           content.text.scan(/<img src="([^\"]+)"/).first.first
+        when :link
+          content.text.scan(/<a href="([^\"]+)"/).first.first
         when :text
           content.text
         else
