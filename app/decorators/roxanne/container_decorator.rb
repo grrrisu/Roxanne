@@ -54,9 +54,9 @@ module Roxanne
       content = model.contents.find_by_name(name)
       case scope
         when :image_source
-          content.text.scan(/<img src="([^\"]+)"/).first.first
+          content.text.scan(/<img src="([^\"]+)"/).first.try(:first)
         when :link
-          content.text.scan(/<a href="([^\"]+)"/).first.first
+          content.text.scan(/<a href="([^\"]+)"/).first.try(:first)
         when :text
           content.text
         else
