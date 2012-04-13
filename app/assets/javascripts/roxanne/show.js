@@ -6,7 +6,6 @@
 //
 //= require jquery
 // require jquery_ujs
-// require_tree .
 
 // Always request javascript when sending xhr
 $(function() {
