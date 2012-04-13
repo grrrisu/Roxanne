@@ -11,7 +11,7 @@ module Roxanne
     
     # Additional application configuration to include precompiled assets.
     initializer :assets, :group => :all do |app|
-      app.config.assets.precompile += %w( roxanne_edit.js )
+      app.config.assets.precompile += %w( roxanne_edit.js roxanne/show.js )
     end
   end
 end
