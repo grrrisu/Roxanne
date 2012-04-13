@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["{test,spec}/**/*"]
 
   s.add_dependency "rails", "~> 3.2.2"
-  s.add_dependency 'mercury-rails', "~> 0.3.1"
+  #s.add_dependency 'mercury-rails', "~> 0.3.1"
   s.add_dependency 'ancestry'
   s.add_dependency 'haml'
   s.add_dependency 'draper'
