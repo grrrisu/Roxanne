@@ -129,7 +129,7 @@ window.Mercury = {
         snippetPanel:          ['Snippet', 'Snippet Panel', { panel: '/mercury/panels/snippets.html' }],
         sep2:                  ' ',
         insertPage:            ['Page', 'Add a new page', { modal: '/pages/new'}],
-        insertImage:           ['Image', 'Image Library', { modal: '/images'}],
+        insertImage:           ['Image', 'Image Library', { modal: '/image_library'}],
         sep3:                  ' ',
         //historyPanel:          ['History', 'Page Version History', { panel: '/mercury/panels/history.html' }],
         //sep3:                  ' ',

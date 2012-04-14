@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :users, :as => 'users'
     resources :pages, :as => 'pages'
     resources :containers, :as => 'containers'
-    resources :images, :as => 'images'
+    get 'image_library', :to => "images#index"
 
     match 'sitemap' => "pages#index", :as => 'sitemap'
     get  '/edit(/*uri)', :to => "contents#edit", :constraints => { :uri => /(?!(editor|mercury)\/).+/ }, :as => "contents_edit"
