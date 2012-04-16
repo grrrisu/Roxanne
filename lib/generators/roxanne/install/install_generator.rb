@@ -4,7 +4,7 @@ module Roxanne
 
     desc "include javascript and stylesheets for roxanne"
     def add_assets
-      append_to_file "app/assets/javascripts/application.js", "//= require roxanne/application\n"
+      append_to_file "app/assets/javascripts/application.js", "//= require roxanne/show\n"
       insert_into_file "app/assets/stylesheets/application.css", " *= require 'roxanne/roxanne'\n", :before => '*/'
       insert_into_file "app/assets/stylesheets/application.css", " *= require 'roxanne/toolbar'\n", :before => '*/'
     end
