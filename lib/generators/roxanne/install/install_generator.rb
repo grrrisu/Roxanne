@@ -31,7 +31,7 @@ module Roxanne
 
     desc "add Roxanne routes"
     def mount
-      route "mount Roxanne::Engine => '/roxanne'"
+      route "mount Roxanne::Engine => '/'"
     end
 
     desc "migrate database"
