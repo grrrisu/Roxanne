@@ -16,7 +16,7 @@ module Roxanne
     # GET /edit/uri
     def edit
       session[:edit] = true
-      redirect_to main_app.mercury_editor_path(params[:uri])
+      redirect_to mercury_engine.mercury_editor_path(params[:uri])
     end
 
     # POST uri

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     root :to => "contents#show", :uri => ''
   end
 
-  Mercury::Engine.routes
+  mount Mercury::Engine => '/'
 
   scope :module => 'roxanne' do
     get "login", :to => "sessions#new", :as => "login"
