@@ -2,12 +2,12 @@
   &nbsp;
   %span{:style => "float: left"}
     .users
-    = link_to 'New User', main_app.new_user_path
+    = link_to 'New User', roxanne.new_user_path
   %span{:style => "float: left"}
     .edit
-    = link_to 'Edit', main_app.contents_edit_path(request_uri)
+    = link_to 'Edit', roxanne.contents_edit_path(request_uri)
   %span{:style => "float: right"}
     .logout
-    = link_to 'Logout', main_app.logout_path
+    = link_to 'Logout', roxanne.logout_path
     &nbsp;&nbsp;
 #roxanne_toolbar_spacer

@@ -1,4 +1,1 @@
-require "roxanne/engine"
-
-module Roxanne
-end
+require "roxanne/rails"

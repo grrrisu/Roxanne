@@ -58,7 +58,7 @@ module Roxanne
 
       respond_to do |format|
         if @container.save
-          format.html { redirect_to main_app.container_path(@container), notice: 'Container was successfully created.' }
+          format.html { redirect_to roxanne.container_path(@container), notice: 'Container was successfully created.' }
           format.json { render json: @container, status: :created, location: @container }
           format.js   { render text: ContainerDecorator.decorate(@container).render }
         else

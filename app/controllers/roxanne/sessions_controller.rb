@@ -1,13 +1,13 @@
 module Roxanne
   class SessionsController < ApplicationController
-  
+
     def new
     end
 
     def create
       user = login(params[:session][:username], params[:session][:password], params[:session][:remember_me])
       if user
-        redirect_back_or_to main_app.root_url, :notice => "Logged in"
+        redirect_back_or_to roxanne.root_url, :notice => "Logged in"
       else
         flash[:error] = "Login failed"
         render :action => 'new'
@@ -16,7 +16,7 @@ module Roxanne
 
     def destroy
       logout
-      redirect_to main_app.root_url, :notice => "Logged out"
+      redirect_to roxanne.root_url, :notice => "Logged out"
     end
 
   end

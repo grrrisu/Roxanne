@@ -48,7 +48,7 @@ module Roxanne
       if page
         @page = PageDecorator.decorate(page)
       else
-        redirect_to main_app.root_path, error: "No page found with #{params[:uri]}", :status => 404
+        redirect_to roxanne.root_path, error: "No page found with #{params[:uri]}", :status => 404
       end
     end
 
