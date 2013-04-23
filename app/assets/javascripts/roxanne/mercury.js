@@ -106,9 +106,12 @@ window.Mercury = {
         insertCharacter:       ['Character', 'Special Characters', { modal: '/mercury/modals/character.html', regions: ['full', 'markdown'] }],
         snippetPanel:          ['Snippet', 'Snippet Panel', { panel: '/mercury/panels/snippets.html' }],
         sep2:                  ' ',
-        historyPanel:          ['History', 'Page Version History', { panel: '/mercury/panels/history.html' }],
-        sep3:                  ' ',
-        notesPanel:            ['Notes', 'Page Notes', { panel: '/mercury/panels/notes.html' }]
+        insertPage:            ['Page', 'Add a new page', { modal: '/pages/new'}],
+        insertImage:           ['Image', 'Image Library', { modal: '/image_library'}],
+        sep3:                  ' '
+        // historyPanel:          ['History', 'Page Version History', { panel: '/mercury/panels/history.html' }],
+        // sep3:                  ' ',
+        // notesPanel:            ['Notes', 'Page Notes', { panel: '/mercury/panels/notes.html' }]
         },
 
       editable: {
