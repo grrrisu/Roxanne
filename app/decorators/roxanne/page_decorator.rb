@@ -1,7 +1,7 @@
 # encoding: UTF-8
 module Roxanne
   class PageDecorator < ApplicationDecorator
-    decorates "Roxanne::Page"
+    delegate_all
 
     def render_list(name, template = nil)
       decorater = get_container(name) do
@@ -30,7 +30,7 @@ module Roxanne
     # options
     # * node     subtree of node (default root)
     # * depth    depth starting from root (default all)
-    # * start    filter nodes starting at depth 
+    # * start    filter nodes starting at depth
     def render_navigation(template, options)
       breadcrumbs  = model.ancestors << model
       if options[:start]
@@ -40,7 +40,7 @@ module Roxanne
       end
       navigation   = subtree_root.sorted_subtree(options[:depth])
       navigation   = navigation.find_all{|page| page.depth >= options[:start]} if options[:start]
-      
+
       helpers.render "templates/pages/#{template}", navigation: navigation, breadcrumbs: breadcrumbs, root: subtree_root
     end
 

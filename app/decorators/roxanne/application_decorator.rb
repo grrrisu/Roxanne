@@ -1,5 +1,5 @@
 module Roxanne
-  class ApplicationDecorator < Draper::Base
+  class ApplicationDecorator < Draper::Decorator
 
     def edit_mode?
       helpers.session[:edit]

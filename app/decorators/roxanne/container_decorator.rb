@@ -1,6 +1,6 @@
 module Roxanne
   class ContainerDecorator < ApplicationDecorator
-    decorates "Roxanne::Container"
+    delegate_all
 
     def render
       if model.instance_of? ContainerList
