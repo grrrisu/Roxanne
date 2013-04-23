@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0">
-    <%= csrf_meta_tags %>
-    <title>Editor</title>
-    <%= stylesheet_link_tag    'mercury' %>
-    <%= javascript_include_tag 'jquery-1.7', 'mercury' %>
-  </head>
-  <body>
-    <script type="text/javascript">
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, maximum-scale=1.0, initial-scale=1.0"}
+    = csrf_meta_tags
+    %title Editor
+    = stylesheet_link_tag    'mercury'
+    = javascript_include_tag 'jquery-1.7', 'roxanne_edit'
+  %body
+    :javascript
       // Set to the url that you want to save any given page to, leave null for default handling.
       var saveUrl = null;
 
@@ -18,6 +17,3 @@
         saveMethod: null, // 'PUT', or 'POST', (create, vs. update -- default PUT)
         visible:    true  // boolean - if the interface should start visible or not
       });
-    </script>
-  </body>
-</html>
