@@ -4,6 +4,7 @@ require 'draper'
 require 'sorcery'
 require 'haml'
 require 'formtastic'
+require 'paperclip'
 
 module Roxanne
   class Engine < ::Rails::Engine
