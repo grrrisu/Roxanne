@@ -3,6 +3,32 @@ module Roxanne
   class PageDecorator < ApplicationDecorator
     delegate_all
 
+    # ----- refactor start ------
+
+    # if template is nil we will ask the user which container he wants to add
+    # otherwise we use the template and add the child container directly
+    def render_list(name, template = nil)
+      list = model.containers
+                  .where(name: name)
+                  .first_or_initialize
+      output = edit_mode? ? add_container_before : ''
+      output += list.children.map do |child|
+        ContainerDecorator.decorate(child).render_with_template(template)
+      end
+      output
+    end
+
+    def render_content(name, template = 'simple')
+      container = model.containers
+                       .where(name: name)
+                       .first_or_initialize(template: template)
+      content = container.where(name: name).first_or_initialize
+      ContentDecorator.decorate(content).render_with_template(template)
+    end
+
+
+    # ----- refactor end ------
+
     def render_list(name, template = nil)
       decorater = get_container(name) do
         if template
