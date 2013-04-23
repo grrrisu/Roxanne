@@ -1,5 +1,8 @@
 Roxanne::Engine.routes.draw do
   mount Mercury::Engine => '/' # anything beginning with /editor or /mercury
+  namespace :mercury do
+    resources :images
+  end
 
   post '/', :to => "contents#save", :uri => ''
   root :to => "contents#show", :uri => ''
