@@ -7,15 +7,17 @@ module Roxanne
 
     # if template is nil we will ask the user which container he wants to add
     # otherwise we use the template and add the child container directly
-    def render_list(name, template = nil)
-      list = model.containers
+    def render_list(name, template = nil, container_tag = 'div')
+      list = model.container_lists
                   .where(name: name)
                   .first_or_initialize
-      output = edit_mode? ? add_container_before : ''
-      output += list.children.map do |child|
-        ContainerDecorator.decorate(child).render_with_template(template)
+
+      helpers.content_tag(container_tag, class: 'container_list') do
+        output = edit_mode? ? add_container_before : ''
+        output += list.children.map do |child|
+          child.decorate.render_with_template(template)
+        end
       end
-      output
     end
 
     def render_content(name, template = 'simple')
@@ -23,7 +25,7 @@ module Roxanne
                        .where(name: name)
                        .first_or_initialize(template: template)
       content = container.where(name: name).first_or_initialize
-      ContentDecorator.decorate(content).render_with_template(template)
+      content.decorate.render_with_template(template)
     end
 
 
