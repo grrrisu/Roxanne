@@ -3,6 +3,7 @@ module Roxanne
     include Sortable
 
     has_many :containers, :dependent => :destroy
+    has_many :container_lists, class_name: 'Roxanne::ContainerList'
     has_ancestry :cache_depth => true, :depth_cache_column => :depth
 
     before_validation :set_layout
@@ -61,6 +62,6 @@ module Roxanne
         sorted_nodes
       end
     end
-    
+
   end
 end
