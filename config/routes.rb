@@ -4,7 +4,7 @@ Roxanne::Engine.routes.draw do
     resources :images
   end
 
-  post '/', :to => "contents#save", :uri => ''
+  put '/', :to => "contents#save", :uri => ''
   root :to => "contents#show", :uri => ''
 
   get "login", :to => "sessions#new", :as => "login"
@@ -19,5 +19,5 @@ Roxanne::Engine.routes.draw do
   match 'sitemap' => "pages#index", :as => 'sitemap'
   get  '/edit(/*uri)', :to => "contents#edit", :constraints => { :uri => /(?!(editor|mercury)\/).+/ }, :as => "contents_edit"
   get  ':uri', :to => "contents#show", :constraints => { :uri => /(?!(editor|mercury)\/).+/ }
-  post ':uri', :to => "contents#save", :constraints => { :uri => /(?!(editor|mercury)\/).+/ }
+  put ':uri', :to => "contents#save", :constraints => { :uri => /(?!(editor|mercury)\/).+/ }
 end
