@@ -1,9 +1,5 @@
 Roxanne::Engine.routes.draw do
   mount Mercury::Engine => '/' # anything beginning with /editor or /mercury
-  namespace :mercury do
-    resources :images
-  end
-
   put '/', :to => "contents#save", :uri => ''
   root :to => "contents#show", :uri => ''
 
@@ -20,4 +16,10 @@ Roxanne::Engine.routes.draw do
   get  '/edit(/*uri)', :to => "contents#edit", :constraints => { :uri => /(?!(editor|mercury)\/).+/ }, :as => "contents_edit"
   get  ':uri', :to => "contents#show", :constraints => { :uri => /(?!(editor|mercury)\/).+/ }
   put ':uri', :to => "contents#save", :constraints => { :uri => /(?!(editor|mercury)\/).+/ }
+end
+
+Mercury::Engine.routes.draw do
+  namespace :mercury do
+    resources :images, only: [:create, :destroy]
+  end
 end
