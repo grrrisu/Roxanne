@@ -24,7 +24,7 @@ module Roxanne
         end
         helpers.content_tag 'a', '',
                    :id => "before_#{model.new_record? ? model.name : id}",
-                   :href => "#", :onclick => "return false;", :class => "add_container",
+                   :href => "#", :class => "add_container",
                    :data => data
       else
         ''
