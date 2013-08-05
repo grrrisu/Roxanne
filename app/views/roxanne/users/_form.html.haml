@@ -6,5 +6,5 @@
         = form.input :email
         = form.input :password
         = form.input :password_confirmation
-      = form.buttons do
-        = form.commit_button 'Create User'
+      = form.actions do
+        = form.action :submit, :button_html => {:value => 'Create User'}

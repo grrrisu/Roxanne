@@ -5,5 +5,5 @@
         = form.input :username
         = form.input :password
         = form.input :remember_me, :as => :boolean
-      = form.buttons do
-        = form.commit_button 'Login'
+      = form.actions do
+        = form.action :submit, :button_html => {:value => 'Login'}

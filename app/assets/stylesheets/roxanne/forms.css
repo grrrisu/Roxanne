@@ -73,26 +73,26 @@ form li.boolean {
 form li.boolean label {
   width: auto;
 }
-form fieldset.buttons {
+form fieldset.actions {
   clear: both;
   padding: 0;
   background: none;
   border: none;
   text-align: left;
 }
-form fieldset.buttons ol {
+form fieldset.actions ol {
   margin: 0 -2px 0 0;
   float: right;
 }
-form fieldset.buttons ol li {
+form fieldset.actions ol li {
   float: left;
   padding-left: 0.5em;
   padding-right: 0;
 }
-form fieldset.buttons .commit {
+form fieldset.actions .commit {
   margin: 0;
 }
-form fieldset.buttons .commit input {
+form fieldset.actions .commit input {
   padding: 8px 14px 9px !important;
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', sans-serif;
   font-size: 1.3em;
