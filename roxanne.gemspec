@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'ancestry'
   s.add_dependency 'haml'
   s.add_dependency 'draper'
-  s.add_dependency 'formtastic', "< 2.2" # form.buttons -> form.actions
+  s.add_dependency 'formtastic'
   s.add_dependency 'sorcery'
   # s.add_dependency "jquery-rails"
 
